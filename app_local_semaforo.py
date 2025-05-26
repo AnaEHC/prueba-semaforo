@@ -28,11 +28,9 @@ def obtener_festivos():
         response = requests.post(API_URL, data={"accion": "festivos"})
         response.raise_for_status()
 
-        # 🔍 DEBUG: Mostrar respuesta JSON cruda
         fechas_json = response.json()
         st.write("📦 Respuesta JSON cruda de festivos:", fechas_json)
 
-        # Asegurar que es lista y no está vacía
         if not isinstance(fechas_json, list):
             st.warning("⚠️ La respuesta de la API no es una lista de fechas.")
             return set()
@@ -40,16 +38,16 @@ def obtener_festivos():
             st.warning("⚠️ La lista de festivos está vacía.")
             return set()
 
-        # 🔍 Mostrar primer elemento para verificar estructura
         st.write("🔍 Primer elemento:", fechas_json[0])
 
-        # Convertir strings a fechas.date
+        # ✅ Conversión segura
         fechas = set(pd.to_datetime(fechas_json).to_pydatetime().date() for f in fechas_json)
         return fechas
 
     except Exception as e:
         st.warning(f"⚠️ No se pudieron cargar los festivos desde la API: {e}")
         return set()
+
 
 
 
