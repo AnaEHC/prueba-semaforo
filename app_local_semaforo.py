@@ -7,7 +7,7 @@ import requests  # ✅ Para conectarse a la API PHP
 from datetime import datetime, timedelta
 
 # --- CONFIGURACIÓN ---
-st.set_page_config(page_title="Ruta Semaforo: Del Contacto al Cierre", page_icon="🚦", layout="wide")
+st.set_page_config(page_title="Ruta Semáforo: Del Contacto al Cierre", page_icon="🚦", layout="wide")
 st.title("🚦 Ruta Semáforo: Del Contacto al Cierre")
 
 # --- COLORES DEL SEMÁFORO (estilo visual) ---
